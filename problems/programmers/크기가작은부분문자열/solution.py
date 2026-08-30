@@ -14,3 +14,12 @@ for 문자열 in 부분문자열:
         result += 1
 
 print(result)
+
+def solution(t, p):
+    result = 0
+    length = len(p)
+    partial = [t[i:i+length] for i in range(len(t)-length+1)]
+    for number in partial:
+        if int(number) <= int(p):
+            result += 1
+    return result

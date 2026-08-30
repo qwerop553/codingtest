@@ -20,4 +20,19 @@ for i, privacy in enumerate(privacies, start=1):
     date, term = privacy.split(" ")
     if limit >= to_days(date) + terms[term] * 28:
         ret.append(i)
+
 print(ret)
+
+def solution(today, terms, privacies):
+    ret = []
+    limit = to_days(today)
+    terms = {term.split(" ")[0] : int(term.split(" ")[1]) for term in terms}
+    for i, privacy in enumerate(privacies, start=1):
+        date, term = privacy.split(" ")
+        if limit >= to_days(date) + terms[term] * 28:
+            ret.append(i)
+    return ret    
+
+def to_days(date: str) -> int:
+    year, month, day = map(int, date.split("."))
+    return (12*year + month) * 28 + day

@@ -29,10 +29,12 @@ print(ret)
 
 def solution(s):
     answer = 0
+    ch_count = 0
     for ch in s:
         if ch_count == 0:
             cs = ch
             other_count = 0
+            ch_count += 1
         else:
             if cs == ch:
                 ch_count += 1
